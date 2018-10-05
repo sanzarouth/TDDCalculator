@@ -1,15 +1,12 @@
 package com.example.sanzarouth.tddtest.ModelView;//package com.example.sanzarouth.tddtest.ModelView;
 
 import android.arch.lifecycle.ViewModel;
-import android.widget.Toast;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.script.ScriptEngineManager;
 import javax.script.ScriptEngine;
-import javax.script.ScriptException;
+import javax.script.ScriptEngineManager;
 
 public class AdvancedCalculatorViewModel extends ViewModel{
 
