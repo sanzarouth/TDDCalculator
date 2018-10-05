@@ -39,4 +39,5 @@ dependencies {
     androidTestImplementation 'org.mockito:mockito-core:2.7.22'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation ("com.android.support.test.espresso:espresso-intents:3.0.2")
+    implementation 'org.codehaus.janino:janino:3.0.10'
 }

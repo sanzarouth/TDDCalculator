@@ -16,7 +16,8 @@ public class AdvancedCalculatorUnitTest {
         assertEquals("(18+2)*3 should return 60", (18+2)*3, acvm.getResult(), 0);
     }
 
-    @public void cantCalculateIfFormatWrong() {
+    @Test
+    public void cantCalculateIfFormatWrong() {
         acvm.calculate("(18+2*3");
         assertEquals("(18+2*3 should return NaN", Double.NaN, acvm.getResult(), 0);
     }
