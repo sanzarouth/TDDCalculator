@@ -17,9 +17,15 @@ public class AdvancedCalculatorUnitTest {
     }
 
     @Test
-    public void cantCalculateIfFormatWrong() {
+    public void doesNotAcceptUnmatchedBrackets() {
         acvm.calculate("(18+2*3");
         assertEquals("(18+2*3 should return NaN", Double.NaN, acvm.getResult(), 0);
+    }
+
+    @Test
+    public void doesNotAcceptInvalidCharacters() {
+        acvm.calculate("p+23-22");
+        assertEquals("p+23-22 should return NaN", Double.NaN, acvm.getResult(), 0);
     }
 
 }
