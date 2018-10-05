@@ -1,15 +1,15 @@
 package com.example.sanzarouth.tddtest.ModelView;//package com.example.sanzarouth.tddtest.ModelView;
 
+import android.arch.lifecycle.ViewModel;
+
+import org.codehaus.commons.compiler.CompileException;
+import org.codehaus.janino.ExpressionEvaluator;
+
 import java.lang.reflect.InvocationTargetException;
-import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.codehaus.commons.compiler.CompileException;
-import org.codehaus.janino.*;
-
-
-public class AdvancedCalculatorViewModel {
+public class AdvancedCalculatorViewModel extends ViewModel{
 
     double result;
 
