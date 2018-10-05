@@ -26,12 +26,19 @@ public class InstrumentedTestAdvancedActivity {
     public void canEvaluateExpression() {
         Espresso.onView(withId(R.id.advancedInput)).perform(ViewActions.typeText("(3+3)*(3-1)"));
         Espresso.onView(withId(R.id.calculateBtn)).perform(ViewActions.click());
-        Espresso.onView(withId(R.id.advancedResultView)).check(matches(withText("12")));
+        Espresso.onView(withId(R.id.advancedResultView)).check(matches(withText("12.0")));
     }
 
     @Test
     public void cannotEvaluateExpressionWithWrongFormat() {
         Espresso.onView(withId(R.id.advancedInput)).perform(ViewActions.typeText("(3+3)*3-1)"));
+        Espresso.onView(withId(R.id.calculateBtn)).perform(ViewActions.click());
+        Espresso.onView(withId(R.id.advancedResultView)).check(matches(withText("NaN")));
+    }
+
+    @Test
+    public void cannotEvaluateExpressionWithWrongCharacters() {
+        Espresso.onView(withId(R.id.advancedInput)).perform(ViewActions.typeText("(3+3)*3-p)"));
         Espresso.onView(withId(R.id.calculateBtn)).perform(ViewActions.click());
         Espresso.onView(withId(R.id.advancedResultView)).check(matches(withText("NaN")));
     }

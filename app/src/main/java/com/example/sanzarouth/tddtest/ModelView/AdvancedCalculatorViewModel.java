@@ -1,37 +1,30 @@
 package com.example.sanzarouth.tddtest.ModelView;//package com.example.sanzarouth.tddtest.ModelView;
 
 import android.arch.lifecycle.ViewModel;
-
-import org.codehaus.commons.compiler.CompileException;
-import org.codehaus.janino.ExpressionEvaluator;
+import android.widget.Toast;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptEngine;
+import javax.script.ScriptException;
+
 public class AdvancedCalculatorViewModel extends ViewModel{
 
     double result;
-
-    ExpressionEvaluator ee = new ExpressionEvaluator();
 
     public void calculate(String input) {
         if (!checkRegex(input)){
            result = Double.NaN;
            return;
         }
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
         try {
-            ee.cook(input);
-            String res = null;
-            try {
-                res = String.valueOf(ee.evaluate(null));
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
-            result = Double.valueOf(res);
-
-        } catch (CompileException e) {
-            e.printStackTrace();
+            result = (double) engine.eval(input);
+        } catch (Exception e){
+            //
         }
     }
 
